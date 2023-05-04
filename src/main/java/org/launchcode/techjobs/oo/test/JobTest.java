@@ -8,5 +8,20 @@ import org.junit.runners.JUnit4;
  */
 @RunWith(JUnit4.class)
 public class JobTest {
+// define a test called testSettingJobId
 
+
+// define a test called testJobConstructorSetsAllFields
+
+
+// define a test called testJobsForEquality
+
+
+// define a test called testToStringStartsAndEndsWithNewLine
+
+
+// define a test called testToStringContainsCorrectLabelsAndData
+
+
+// define a test called testToStringHandlesEmptyField
 }
