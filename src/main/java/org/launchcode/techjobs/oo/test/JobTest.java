@@ -53,12 +53,35 @@ public class JobTest {
 }
 // define a test called testToStringStartsAndEndsWithNewLine
 @Test
-    public void testToStringStartsAndEndsWithNewLine(){
-    
+    public void testToStringStartsAndEndsWithNewLine() {
+    Job job6 = new Job("CEO", new Employer("Google"), new Location("CA"),
+            new PositionType("boss"), new CoreCompetency("leadership"));
+    char firstChar = job6.toString().charAt(0);
+    char lastChar = job6.toString().charAt(job6.toString().length()-1);
+    assertEquals(firstChar, '\n');
+    assertEquals(lastChar, '\n');
 }
 
 // define a test called testToStringContainsCorrectLabelsAndData
-
+@Test
+    public void testToStringContainsCorrectLabelsAndData() {
+    Job job7 = new Job("A", new Employer("B"), new Location("C"),
+            new PositionType("D"), new CoreCompetency("E"));
+   String jobString = job7.toString();
+   assertEquals("\nID: " + job7.getId() + "\nName: " + job7.getName() + "\nEmployer: " +
+           job7.getEmployer() + "\nLocation: " + job7.getLocation() + "\nPosition Type: " +
+           job7.getPositionType() + "\nCore Competency: " + job7.getCoreCompetency() + "\n", jobString);
+}
 
 // define a test called testToStringHandlesEmptyField
+ @Test
+    public void testToStringHandlesEmptyField() {
+    Job job8 = new Job("Coach", new Employer("Sportsball Team"),
+            new Location(""), new PositionType("coach"), new CoreCompetency("coaching"));
+     String jobString = job8.toString();
+    assertEquals("\nID: " + job8.getId() + "\nName: " + job8.getName() + "\nEmployer: " +
+            job8.getEmployer() + "\nLocation: Data not available" + "\nPosition Type: " +
+            job8.getPositionType() + "\nCore Competency: " + job8.getCoreCompetency() + "\n", jobString);
+ }
+
 }

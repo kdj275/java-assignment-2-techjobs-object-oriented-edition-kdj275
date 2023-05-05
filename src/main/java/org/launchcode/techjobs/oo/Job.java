@@ -34,9 +34,9 @@ public class Job {
     @Override
     public boolean equals(Object o) {  // Two objects are equal if they have the same id.
         if (this == o) return true;
-        if (!(o instanceof Employer)) return false;
-        Employer employer = (Employer) o;
-        return getId() == employer.getId();
+        if (!(o instanceof Job)) return false;
+        Job job = (Job) o;
+        return getId() == job.getId();
     }
 
     @Override
@@ -92,8 +92,30 @@ public class Job {
     }
 
     // create a toString method
-//    @Override
-//    public String toString() {
-//        return value;
-//    }
+    @Override
+    public String toString() {
+
+        if (name.equals("")) {
+            name = "Data not available";
+        }
+        if (employer.getValue().equals("") || employer.getValue() == null) {
+            employer.setValue("Data not available");
+        }
+        if (location.getValue().equals("") || location.getValue() == null) {
+            location.setValue("Data not available");
+        }
+        if (positionType.getValue().equals("") || positionType.getValue() == null) {
+            positionType.setValue("Data not available");
+        }
+        if (coreCompetency.getValue().equals("") || coreCompetency.getValue() == null) {
+            coreCompetency.setValue("Data not available");
+        }
+        return "\nID: " + this.getId() +
+                "\nName: " + this.getName() +
+                "\nEmployer: " + this.getEmployer() +
+                "\nLocation: " + this.getLocation() +
+                "\nPosition Type: " + this.getPositionType() +
+                "\nCore Competency: " + this.getCoreCompetency() +
+                "\n";
+    }
 }
